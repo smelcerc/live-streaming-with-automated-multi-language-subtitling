@@ -392,7 +392,7 @@ Resources:
       Code:
         S3Bucket: !Join ["-", [!FindInMap ["SourceCode", "General", "S3Bucket"], Ref: "AWS::Region"]]
         S3Key: !Join ["/", [!FindInMap ["SourceCode", "General", "KeyPrefix"],  "custom-resource-py.zip"]]
-      Runtime:  python3.6
+      Runtime:  python3.7
       Timeout: 180
 
 ################################################
@@ -1076,7 +1076,7 @@ Resources:
       Handler: index.lambda_handler
       Timeout: 300
       Role: !GetAtt 'CustomResourceCloudFrontIncludeBodyExecutionRole.Arn'
-      Runtime: python3.6
+      Runtime: python3.7
       Code:
         ZipFile: |
           import string
@@ -1182,7 +1182,7 @@ Resources:
       Handler: index.lambda_handler
       Timeout: 600
       Role: !GetAtt 'CustomDeployLambdaEdgeRole.Arn'
-      Runtime: python2.7
+      Runtime: python3.7
       Code:
         ZipFile: |
             import string
